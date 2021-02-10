@@ -93,7 +93,7 @@ export default class ScrollHorizontal extends Component {
 
   caniscroll() {
     let el = DOM.findDOMNode(this.hScrollParent)
-    let rect = el.getBoundingClientRect()
+    let rect = el && el.getBoundingClientRect()
     let scroller = el.firstElementChild
 
     return (

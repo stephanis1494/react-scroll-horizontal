@@ -94,7 +94,7 @@ export default class ScrollHorizontal extends Component {
   caniscroll() {
     let el = DOM.findDOMNode(this.hScrollParent)
     let rect = el && el.getBoundingClientRect()
-    let scroller = el.firstElementChild
+    let scroller = el && el.firstElementChild
 
     return (
       scroller.offsetLeft < rect.left || scroller.offsetLeft + scroller.offsetWidth > rect.width
@@ -111,8 +111,8 @@ export default class ScrollHorizontal extends Component {
       let el = DOM.findDOMNode(this.hScrollParent)
       let rect = el && el.getBoundingClientRect()
 
-      let max = el.lastElementChild.scrollWidth
-      let win = el.offsetWidth
+      let max = el && el.lastElementChild.scrollWidth
+      let win = el && el.offsetWidth
 
       // Get the new animation values
       var curr = this.state.animValues

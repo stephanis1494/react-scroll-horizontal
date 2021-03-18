@@ -183,6 +183,9 @@ export default class ScrollHorizontal extends Component {
       <div
         ref={r => {
           this.hScrollParent = r
+          if (this.props.setRef) {
+            this.props.setRef(r)
+          }
         }}
         style={styles}
         className={`scroll-horizontal ${this.props.className || ''}`}
@@ -216,7 +219,8 @@ ScrollHorizontal.propTypes = {
   scrollToValue: PropTypes.number,
   onScroll: PropTypes.func,
   onReachStart: PropTypes.func,
-  onReachEnd: PropTypes.func
+  onReachEnd: PropTypes.func,
+  setRef: PropTypes.func
 }
 
 ScrollHorizontal.defaultProps = {
@@ -229,5 +233,6 @@ ScrollHorizontal.defaultProps = {
   scrollToValue: null,
   onScroll: null,
   onReachStart: null,
-  onReachEnd: null
+  onReachEnd: null,
+  setRef: null
 }
